@@ -1,0 +1,68 @@
+{
+  "name": "cleanstack-isomorphic",
+  "description": "A simple isomorphic framework to build react apps upon",
+  "version": "1.0.0",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/richardanaya/cleanstack-isomorphic.git"
+  },
+  "homepage": "https://github.com/richardanaya/cleanstack-isomorphic/",
+  "keywords": [
+    "react",
+    "isomorphic",
+    "universal",
+    "starter",
+    "boilerplate",
+    "template",
+    "webpack",
+    "koa"
+  ],
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "node --harmony ./dist/server.js",
+    "build-server": "node ./node_modules/webpack/bin/webpack.js --colors --display-error-details --config configs/webpack.server.js",
+    "build-client": "node ./node_modules/webpack/bin/webpack.js --colors --display-error-details --config configs/webpack.client.js",
+    "build": "node ./node_modules/concurrently/src/main.js \"npm run build-server\" \"npm run build-client\"",
+    "watch-server": "node ./node_modules/webpack/bin/webpack.js --watch --verbose --colors --display-error-details --config configs/webpack.server-watch.js",
+    "watch-server-start": "node ./node_modules/wait-run/bin/wait-run.js --pattern \"dist/*.js\" \"node --harmony ./dist/server.js\"",
+    "watch-client": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config configs/webpack.client-watch.js",
+    "watch": "node ./node_modules/concurrently/src/main.js \"npm run watch-server-start\" \"npm run watch-server\" \"npm run watch-client\""
+  },
+  "dependencies": {
+    "babel-polyfill": "6.3.14",
+    "co": "^4.6.0",
+    "co-chan": "0.0.3",
+    "history": "1.17.0",
+    "immstruct": "^2.0.0",
+    "immutable": "^3.7.6",
+    "isomorphic-fetch": "^2.2.0",
+    "koa": "1.1.2",
+    "koa-proxy": "0.4.1",
+    "koa-router": "5.3.0",
+    "koa-static": "1.5.2",
+    "node-sass": "^3.4.2",
+    "react": "0.14.6",
+    "react-cursor-mixin": "^1.1.0",
+    "react-dom": "0.14.6",
+    "react-mdl": "^1.1.0",
+    "react-router": "1.0.3"
+  },
+  "devDependencies": {
+    "babel": "6.3.26",
+    "babel-core": "6.3.26",
+    "babel-loader": "6.2.1",
+    "babel-preset-es2015": "6.3.13",
+    "babel-preset-react": "6.3.13",
+    "babel-preset-react-hmre": "1.0.1",
+    "babel-preset-stage-0": "6.3.13",
+    "concurrently": "1.0.0",
+    "json-loader": "0.5.4",
+    "wait-run": "1.1.0",
+    "webpack": "1.12.9",
+    "webpack-dev-server": "1.14.0"
+  },
+  "engines": {
+    "node": ">=0.10.32"
+  }
+}
